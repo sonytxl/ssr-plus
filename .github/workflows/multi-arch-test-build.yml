@@ -101,9 +101,4 @@ jobs:
           name: ${{env.ARCHIVE_NAME}}-packages
           path: |
             *.ipk
-            PKG-INFO
-
-      
-          path: |
-            logs/
-            PKG-INFO
+         
