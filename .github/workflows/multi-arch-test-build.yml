@@ -1,9 +1,7 @@
 name: ssr-plus Build
 
 on:
-  pull_request:
-    paths-ignore:
-      - '**.md'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,17 +12,11 @@ jobs:
       matrix:
         include:
           
-
           - arch: mipsel_24kc
             target: mt7621
 
           - arch: aarch64_cortex-a53
             target: mvebu-cortexa53
-
-        
-
-          - arch: x86_64
-            target: x86-64
 
     steps:
       - uses: actions/checkout@v3
@@ -111,10 +103,7 @@ jobs:
             *.ipk
             PKG-INFO
 
-      - name: Store logs
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{env.ARCHIVE_NAME}}-logs
+      
           path: |
             logs/
             PKG-INFO
